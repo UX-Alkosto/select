@@ -1,0 +1,145 @@
+@import "./mixins.less";
+
+.ALK {
+    &__custom-select {
+
+        &__arrow,
+        &__container,
+        &__label,
+        &__options,
+        &__option,
+        &__value {
+            box-sizing: border-box;
+        }
+
+        &__arrow {
+            border-left: 1px solid var(--select-arrow-border-color, #5C5C5C);
+            bottom: 8px;
+            color: var(--select-arrow-color, #0F5D68);
+            cursor: pointer;
+            display: flex;
+            font-size: 22px;
+            justify-content: center;
+            line-height: 24px;
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 38px;
+        }
+
+        &__container {
+            border-radius: var(--select-border-raius, 4px);
+            display: inline-flex;
+            outline: none;
+            position: relative;
+            width: 100%;
+
+            &.disabled {
+                &>.custom-select {
+                    &__arrow {
+                        border-left: 1px solid var(--select-arrow-border-color-disabled, #e0e0e0);
+                        color: var(--select-arrow-color-disabled, #e0e0e0);
+                    }
+
+                    &__label {
+                        display: none;
+                    }
+
+                    &__value {
+                        color: var(--select-value-color-disabled, #e0e0e0);
+                        cursor: not-allowed;
+
+                        &:hover {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            &:focus {
+                outline: none;
+
+                &:not(.disabled)>.custom-select__value {
+                    border: 1px solid var(--select-focus-border-color, #063B66);
+                    box-shadow: 0px 0px 4px var(--select-shadow, rgba(black, .4));
+                }
+            }
+        }
+
+        &__label {
+            background-color: var(--select-label-background, #FFF);
+            color: var(--select-label-color, #373435);
+            font-size: 11px;
+            left: .5em;
+            padding: 0 .5em;
+            position: absolute;
+            top: -7px;
+        }
+
+        &__option {
+            color: var(--select-option-color, #959595);
+            cursor: pointer;
+            font-size: 14px;
+            padding: .25em .5em;
+            line-height: 32px;
+
+            &:hover {
+                background-color: var(--select-option-background-color-hover, #F5F5F5);
+            }
+
+            &[data-value="0"] {
+                cursor: not-allowed;
+            }
+        }
+
+        &__options {
+            display: none;
+            background-color: var(--select-option-background-color, #FFF);
+            border-radius: 0 0 var(--select-border-raius, 4px) var(--select-border-raius, 4px);
+            box-shadow: 0 4px 4px var(--select-shadow, rgba(black, .4));
+            left: .25em;
+            list-style: none;
+            margin: 0;
+            max-height: 300px;
+            padding: 0;
+            position: absolute;
+            top: calc(~"100% - .25em");
+            width: calc(~"100% - .5em");
+            z-index: 1;
+            .scrollBar();
+
+            &.show {
+                display: block;
+            }
+        }
+
+        &__value {
+            background-color: var(--select-value-background-color, #FFF);
+            border: 1px solid var(--select-value-border-color, #e0e0e0);
+            border-radius: var(--select-border-raius, 4px);
+            color: var(--select-value-color, #959595);
+            cursor: pointer;
+            font-size: 16px;
+            height: 40px;
+            line-height: 22px;
+            outline: none;
+            overflow: hidden;
+            padding: 8px 52px 8px 16px;
+            text-overflow: ellipsis;
+            transition: .25s all ease-in-out;
+            user-select: none;
+            white-space: nowrap;
+            width: 100%;
+            width: -webkit-fill-available;
+
+            &[data-status="filled"] {
+                border: 1px solid var(--select-value-border-color-filled, #063B66);
+                color: var(--select-value-color-filled, #373435);
+            }
+
+            &:hover {
+                box-shadow: 0px 0px 4px var(--select-shadow, rgba(black, .4));
+            }
+        }
+    }
+}
