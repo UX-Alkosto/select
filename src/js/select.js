@@ -46,11 +46,11 @@ function initSelect(select) {
         select.customElement.classList.add("disabled");
     }
 
-    select.customElement.classList.add("custom-select__container");
+    select.customElement.classList.add("ALK__select__container");
     select.customElement.tabIndex = 0;
     select.customElement.setAttribute("aria-labelledby", `${select.element.id}-label`);
 
-    select.labelElement.classList.add("custom-select__label");
+    select.labelElement.classList.add("ALK__select__label");
     select.labelElement.id = `${select.element.id}-label`;
     select.labelElement.innerText = select.label.textContent;
     select.customElement.append(select.labelElement);
@@ -58,14 +58,14 @@ function initSelect(select) {
     const arrowIcon = document.createElement("span");
     arrowIcon.classList.add("alk-icon-arrow-down");
     select.arrowElement.append(arrowIcon);
-    select.arrowElement.classList.add("custom-select__arrow");
+    select.arrowElement.classList.add("ALK__select__arrow");
     select.customElement.append(select.arrowElement);
 
-    select.valueElement.classList.add("custom-select__value");
+    select.valueElement.classList.add("ALK__select__value");
     select.valueElement.innerText = select.selectedOption.label;
     select.customElement.append(select.valueElement);
 
-    select.optionsCustomElement.classList.add("custom-select__options");
+    select.optionsCustomElement.classList.add("ALK__select__options");
     renderOptions(select);
     select.customElement.append(select.optionsCustomElement);
 
@@ -103,7 +103,7 @@ function renderOptions(select) {
     select.optionsCustomElement.querySelectorAll("*").forEach(n => n.remove());
     select.options.forEach(option => {
         const optionElement = document.createElement("li");
-        optionElement.classList.add("custom-select__option");
+        optionElement.classList.add("ALK__select__option");
         optionElement.classList.toggle("selected", option.selected);
         optionElement.setAttribute("role", "option");
         option.selected ? optionElement.setAttribute("aria-selected", true) : "";

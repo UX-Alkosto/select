@@ -1,7 +1,7 @@
 @import "./mixins.less";
 
 .ALK {
-    &__custom-select {
+    &__select {
 
         &__arrow,
         &__container,
@@ -35,7 +35,7 @@
             width: 100%;
 
             &.disabled {
-                &>.custom-select {
+                &>.ALK__select {
                     &__arrow {
                         border-left: 1px solid var(--select-arrow-border-color-disabled, #e0e0e0);
                         color: var(--select-arrow-color-disabled, #e0e0e0);
@@ -59,7 +59,7 @@
             &:focus {
                 outline: none;
 
-                &:not(.disabled)>.custom-select__value {
+                &:not(.disabled)>.ALK__select__value {
                     border: 1px solid var(--select-focus-border-color, #063B66);
                     box-shadow: 0px 0px 4px var(--select-shadow, rgba(black, .4));
                 }
