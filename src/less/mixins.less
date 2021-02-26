@@ -3,11 +3,11 @@
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-        width: 8px;
+        width: var(--select-scrollbar-width, 8px);
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(black, .5);
-        border-radius: 10px;
+        background-color: var(--select-scollbar-color, rgba(black, .5));
+        border-radius: var(--select-scrollbar-border-radius, 10px);
     }
 }
